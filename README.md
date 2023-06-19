@@ -31,9 +31,9 @@ for batch_idx, data in enumerate(trainloader):
    
     #Weights update
 
-    #Updating the optimizer state after back propagation
+    #Updating the optimizer state after the backpropagation
     scaler.step(optimizer)
-    #Updates the scale (grad-scale) for next iteration
+    #Updates the scale (grad-scale) for the next iteration
     scaler.update()
 ```
 
@@ -77,11 +77,9 @@ for batch_idx, data in enumerate(trainloader):
    
     #Weights update
     if ((batch_idx + 1) % accum_iter ==0) or (batch_idx + 1 == len(trainloader)):
-       
-
-        #Updating the optimizer state after back propagation
+        #Updating the optimizer state after the backpropagation
         scaler.step(optimizer)
-        #Updates the scale (grad-scale) for next iteration
+        #Updates the scale (grad-scale) for the next iteration
         scaler.update()
 ```
 By accumulating gradients over multiple iterations, gradient accumulation reduces the memory requirements during each iteration, enabling training with larger batch sizes or models that would otherwise exceed GPU memory limitations. It can help improve training efficiency and achieve better convergence, although it may introduce a slight delay in the weight updates due to the accumulation step.
