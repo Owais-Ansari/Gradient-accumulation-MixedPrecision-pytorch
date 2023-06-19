@@ -1,4 +1,4 @@
-# Gradient-accumulation-MixedPrecision-pytorch
+## Gradient-accumulation-MixedPrecision-pytorch
 
 
 
@@ -9,7 +9,7 @@ During the training process, the model parameters are updated using gradients ca
 Gradient accumulation addresses this issue by dividing a mini-batch into smaller sub-batches and computing the gradients separately for each sub-batch. Instead of updating the model parameters immediately, the gradients from each sub-batch are accumulated over multiple iterations. After accumulating gradients for a predetermined number of iterations or sub-batches, the accumulated gradients are used to update the model parameters in a single weight update step.
 
 
-#Without gradient accumalation
+**Without gradient accumulation**
 ```
 import torch
 
@@ -49,7 +49,7 @@ The process can be summarized as follows:
 - After accumulating gradients over the desired number of iterations or sub-batches, perform a weight update step using the accumulated gradients.
 - Repeat steps 2-4 for the remaining mini-batches or until the desired number of training iterations is reached.
 
-#With gradient accumalation
+**With gradient accumulation**
 ```
 for batch_idx, data in enumerate(trainloader):
     inputs =  data['image']
