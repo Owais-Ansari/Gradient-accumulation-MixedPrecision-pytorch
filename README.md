@@ -42,10 +42,11 @@ The process can be summarized as follows:
 - Initialize the model parameters.
 - Divide a mini-batch of training examples into smaller sub-batches.
 - Iterate through the sub-batches and perform the following steps:
-    a. Load a sub-batch into GPU memory.
-    b. Forward pass: Compute the loss and the gradients for the current sub-batch.
-    c. Accumulate the gradients by adding them to a running total.
-    d. Repeat steps a-c for the desired number of iterations or sub-batches.
+  
+    -  Load a sub-batch into GPU memory.
+    -  Forward pass: Compute the loss and the gradients for the current sub-batch.
+    -  Accumulate the gradients by adding them to a running total.
+    -  Repeat steps a-c for the desired number of iterations or sub-batches.
 - After accumulating gradients over the desired number of iterations or sub-batches, perform a weight update step using the accumulated gradients.
 - Repeat steps 2-4 for the remaining mini-batches or until the desired number of training iterations is reached.
 
