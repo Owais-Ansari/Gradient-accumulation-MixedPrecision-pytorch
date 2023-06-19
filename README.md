@@ -50,10 +50,14 @@ The process can be summarized as follows:
 - Repeat steps 2-4 for the remaining mini-batches or until the desired number of training iterations is reached.
 
 **With gradient accumulation**
+
+
 ```
 import torch
 
 scaler = torch.cuda.amp.GradScaler()
+accum_factor = 4
+
 for batch_idx, data in enumerate(trainloader):
     inputs =  data['image']
     targets = data['label']
@@ -66,7 +70,7 @@ for batch_idx, data in enumerate(trainloader):
             outputs = model(inputs)
             loss = criterion(outputs, targets)
     #Gradient Accumulation
-    loss =  loss / accu_factor
+    loss =  loss / accum_factor
     #Compute gradient and do backpropagation step
     scaler.scale(loss).backward()
    
