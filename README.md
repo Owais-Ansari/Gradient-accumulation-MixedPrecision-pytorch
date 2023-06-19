@@ -51,6 +51,9 @@ The process can be summarized as follows:
 
 **With gradient accumulation**
 ```
+import torch
+
+scaler = torch.cuda.amp.GradScaler()
 for batch_idx, data in enumerate(trainloader):
     inputs =  data['image']
     targets = data['label']
