@@ -21,8 +21,8 @@ for batch_idx, data in enumerate(trainloader):
    
     inputs = inputs.to(device)
     targets = targets.to(device)
-   
-    optimizer.zero_grad(set_to_none=True):
+    
+    with torch.set_grad_enabled(True):
         with torch.cuda.amp.autocast():
             outputs = model(inputs)
             loss = criterion(outputs, targets)
@@ -34,6 +34,7 @@ for batch_idx, data in enumerate(trainloader):
     #Updating the optimizer state after the backpropagation
     scaler.step(optimizer)
     #Updates the scale (grad-scale) for the next iteration
+    optimizer.zero_grad(set_to_none=True):
     scaler.update()
     
 ```
@@ -66,8 +67,8 @@ for batch_idx, data in enumerate(trainloader):
    
     inputs = inputs.to(device)
     targets = targets.to(device)
-   
-    optimizer.zero_grad(set_to_none=True):
+
+    with torch.set_grad_enabled(True):
         with torch.cuda.amp.autocast():
             outputs = model(inputs)
             loss = criterion(outputs, targets)
@@ -81,6 +82,7 @@ for batch_idx, data in enumerate(trainloader):
         #Updating the optimizer state after the backpropagation
         scaler.step(optimizer)
         #Updates the scale (grad-scale) for the next iteration
+        optimizer.zero_grad(set_to_none=True):
         scaler.update()
         
 ```
