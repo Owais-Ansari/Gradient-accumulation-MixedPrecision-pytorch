@@ -1,5 +1,7 @@
 ## Gradient-accumulation-MixedPrecision-pytorch
 
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+
 
 
 Gradient accumulation is a technique used in machine learning and deep learning to mitigate the limitations of limited GPU memory when training large models or processing large batches of data. It involves accumulating gradients over multiple mini-batches before performing a weight update step.
